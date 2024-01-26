@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+
+    <style>
+        body {
+            background-color: rgb(45, 45, 45);
+        }
+
+        .t-piece,
+        .l-piece,
+        .j-piece,
+        .i-piece,
+        .o-piece,
+        .s-piece,
+        .z-piece {
+            display: none;
+        }
+
+        .next-piece--cont {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        section.game {
+            display: flex;
+        }
+        section.game .game_ui {
+            width: 6em;
+            background-color: rgb(21, 21, 21);
+            text-align: center;
+            color: #fff;
+            font-family: ArcadeClassic;
+            font-size: 2rem;
+/*            display: none;*/
+        }
+        section.game .game_ui .next-piece {
+            width: 80px;
+            height: 80px;
+            background-color: black;
+        }
+        .t-piece div { background-color: purple; width: 20px; height: 20px; position: relative; }
+        .t-piece div:nth-child(2) { left: 20px; top: -20px; }
+        .t-piece div:nth-child(3) { left: 40px; top: -40px; }
+        .t-piece div:nth-child(4) { left: 20px; top: -40px; }
+
+        .l-piece div { background-color: orange; width: 20px; height: 20px; position: relative; }
+        .l-piece div:nth-child(1) { left: 0px; top: 0px; }
+        .l-piece div:nth-child(2) { left: 0px; top: 0px; }
+        .l-piece div:nth-child(3) { left: 0px; top: 0px; }
+        .l-piece div:nth-child(4) { left: 20px; top: -20px; }
+
+        .j-piece div { background-color: pink; width: 20px; height: 20px; position: relative; }
+        .j-piece div:nth-child(1) { left: 40px; top: 0px; }
+        .j-piece div:nth-child(2) { left: 40px; top: 0px; }
+        .j-piece div:nth-child(3) { left: 40px; top: 0px; }
+        .j-piece div:nth-child(4) { left: 20px; top: -20px; }
+
+        .i-piece div { background-color: blue; width: 20px; height: 20px; position: relative; }
+        .i-piece div:nth-child(1) { left: 20px; top: 0px; }
+        .i-piece div:nth-child(2) { left: 20px; top: 0px; }
+        .i-piece div:nth-child(3) { left: 20px; top: 0px; }
+        .i-piece div:nth-child(4) { left: 20px; top: 0px; }
+
+        .o-piece div { background-color: yellow; width: 20px; height: 20px; position: relative; }
+        .o-piece div:nth-child(1) { left: 20px; top: 20px; }
+        .o-piece div:nth-child(2) { left: 40px; top: 0px; }
+        .o-piece div:nth-child(3) { left: 20px; top: 0px; }
+        .o-piece div:nth-child(4) { left: 40px; top: -20px; }
+
+        .s-piece div { background-color: red; width: 20px; height: 20px; position: relative; }
+        .s-piece div:nth-child(1) { left: 20px; top: 20px; }
+        .s-piece div:nth-child(2) { left: 40px; top: 0px; }
+        .s-piece div:nth-child(3) { left: 0px; top: 0px; }
+        .s-piece div:nth-child(4) { left: 20px; top: -20px; }
+
+        .z-piece div { background-color: green; width: 20px; height: 20px; position: relative; }
+        .z-piece div:nth-child(1) { left: 20px; top: 20px; }
+        .z-piece div:nth-child(2) { left: 40px; top: 0px; }
+        .z-piece div:nth-child(3) { left: 40px; top: 0px; }
+        .z-piece div:nth-child(4) { left: 60px; top: -20px; }
+    </style>
+</head>
+
+<body>
+
+    <section class="game">
+        <canvas id="cvs" width="340" height="500"></canvas> <!--240, 400 -->
+        <div class="game_ui">
+            <div class="next-piece--cont">
+                <div class="next-piece">
+                    <div class="t-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="l-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="j-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="i-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="o-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="s-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="z-piece">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score_cont">
+                <p class="h">Score:</p>
+                <p class="score" id="score">0</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
