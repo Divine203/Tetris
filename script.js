@@ -70,13 +70,7 @@ class Tetris {
 	}
 
 	createPiece(type) {
-		if (type === 'T') return this.pieces.T
-		else if (type === 'L') return this.pieces.L
-		else if (type === 'J') return this.pieces.J
-		else if (type === 'I') return this.pieces.I
-		else if (type === 'O') return this.pieces.O
-		else if (type === 'S') return this.pieces.S
-		else if (type === 'Z') return this.pieces.Z
+		return this.pieces[type];
 	}
 
 	createMatrix(width, height) {
